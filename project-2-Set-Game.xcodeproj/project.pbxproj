@@ -56,15 +56,23 @@
 		D33A94B22213295D00EF1907 /* project-2-Set-Game */ = {
 			isa = PBXGroup;
 			children = (
-				D33A94B32213295D00EF1907 /* AppDelegate.swift */,
+				D33A94C82213299300EF1907 /* Supporting Files */,
 				D33A94B52213295D00EF1907 /* ViewController.swift */,
 				D33A94B72213295D00EF1907 /* Main.storyboard */,
-				D33A94BD2213295E00EF1907 /* Assets.xcassets */,
-				D33A94BF2213295E00EF1907 /* LaunchScreen.storyboard */,
 				D33A94C22213295E00EF1907 /* Info.plist */,
 				D33A94BA2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld */,
 			);
 			path = "project-2-Set-Game";
+			sourceTree = "<group>";
+		};
+		D33A94C82213299300EF1907 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D33A94B32213295D00EF1907 /* AppDelegate.swift */,
+				D33A94BD2213295E00EF1907 /* Assets.xcassets */,
+				D33A94BF2213295E00EF1907 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
