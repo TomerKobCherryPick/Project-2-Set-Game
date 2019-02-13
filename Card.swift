@@ -9,22 +9,16 @@
 import Foundation
 
 struct Card {
-    private let identifier: Int
-    private static var identifierFactory = 0
-    private static func getUniqueIdentifier() -> Int {
-        identifierFactory += 1
-        return identifierFactory
-    }
-    init() {
-        self.identifier = Card.getUniqueIdentifier()
-    }
-    
-}
-extension Card: Hashable {
-    static func == (lhs: Card, rhs: Card) -> Bool {
-        return lhs.identifier == rhs.identifier
-    }
-    var hashValue: Int {
-        return identifier
+    private let shape: Int
+    private let fill: Int
+    private let color: Int
+    private let number: Int
+    init(shape: Int, fill: Int, color: Int, number: Int){
+        self.shape = shape
+        self.fill = fill
+        self.color = color
+        self.number = number
     }
 }
+
+
