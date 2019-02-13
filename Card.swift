@@ -9,16 +9,19 @@
 import Foundation
 
 struct Card {
-    private let shape: Int
-    private let fill: Int
-    private let color: Int
-    private let number: Int
+    let attributes: [Int]
     init(shape: Int, fill: Int, color: Int, number: Int){
-        self.shape = shape
-        self.fill = fill
-        self.color = color
-        self.number = number
+        attributes = [shape, fill, color, number]
     }
 }
 
-
+extension Card: Equatable {
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        for index in 0...3 {
+            if lhs.attributes[index] != rhs.attributes[index] {
+                return false
+            }
+        }
+        return true
+    }
+}
