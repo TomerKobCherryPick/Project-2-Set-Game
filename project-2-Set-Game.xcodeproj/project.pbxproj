@@ -13,6 +13,8 @@
 		D33A94BC2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D33A94BA2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld */; };
 		D33A94BE2213295E00EF1907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BD2213295E00EF1907 /* Assets.xcassets */; };
 		D33A94C12213295E00EF1907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BF2213295E00EF1907 /* LaunchScreen.storyboard */; };
+		D33A94CC221408E000EF1907 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A94CB221408E000EF1907 /* Card.swift */; };
+		D33A94CE2214090400EF1907 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A94CD2214090400EF1907 /* SetGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D33A94BD2213295E00EF1907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33A94C02213295E00EF1907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D33A94C22213295E00EF1907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D33A94CB221408E000EF1907 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D33A94CD2214090400EF1907 /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,8 @@
 		D33A94A72213295D00EF1907 = {
 			isa = PBXGroup;
 			children = (
+				D33A94CD2214090400EF1907 /* SetGame.swift */,
+				D33A94CB221408E000EF1907 /* Card.swift */,
 				D33A94B22213295D00EF1907 /* project-2-Set-Game */,
 				D33A94B12213295D00EF1907 /* Products */,
 			);
@@ -148,6 +154,8 @@
 			files = (
 				D33A94B62213295D00EF1907 /* ViewController.swift in Sources */,
 				D33A94BC2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld in Sources */,
+				D33A94CE2214090400EF1907 /* SetGame.swift in Sources */,
+				D33A94CC221408E000EF1907 /* Card.swift in Sources */,
 				D33A94B42213295D00EF1907 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
