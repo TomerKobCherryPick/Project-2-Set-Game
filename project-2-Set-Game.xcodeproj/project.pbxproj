@@ -10,7 +10,6 @@
 		D33A94B42213295D00EF1907 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A94B32213295D00EF1907 /* AppDelegate.swift */; };
 		D33A94B62213295D00EF1907 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A94B52213295D00EF1907 /* ViewController.swift */; };
 		D33A94B92213295D00EF1907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33A94B72213295D00EF1907 /* Main.storyboard */; };
-		D33A94BC2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D33A94BA2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld */; };
 		D33A94BE2213295E00EF1907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BD2213295E00EF1907 /* Assets.xcassets */; };
 		D33A94C12213295E00EF1907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BF2213295E00EF1907 /* LaunchScreen.storyboard */; };
 		D3F10CD52215539E001623E4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CD32215539D001623E4 /* Card.swift */; };
@@ -22,7 +21,6 @@
 		D33A94B32213295D00EF1907 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D33A94B52213295D00EF1907 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D33A94B82213295D00EF1907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D33A94BB2213295D00EF1907 /* project_2_Set_Game.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project_2_Set_Game.xcdatamodel; sourceTree = "<group>"; };
 		D33A94BD2213295E00EF1907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33A94C02213295E00EF1907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D33A94C22213295E00EF1907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 				D3F10CD42215539E001623E4 /* SetGame.swift */,
 				D33A94B72213295D00EF1907 /* Main.storyboard */,
 				D33A94C22213295E00EF1907 /* Info.plist */,
-				D33A94BA2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld */,
 			);
 			path = "project-2-Set-Game";
 			sourceTree = "<group>";
@@ -153,7 +150,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D33A94B62213295D00EF1907 /* ViewController.swift in Sources */,
-				D33A94BC2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld in Sources */,
 				D3F10CD62215539E001623E4 /* SetGame.swift in Sources */,
 				D33A94B42213295D00EF1907 /* AppDelegate.swift in Sources */,
 				D3F10CD52215539E001623E4 /* Card.swift in Sources */,
@@ -356,19 +352,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D33A94BA2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D33A94BB2213295D00EF1907 /* project_2_Set_Game.xcdatamodel */,
-			);
-			currentVersion = D33A94BB2213295D00EF1907 /* project_2_Set_Game.xcdatamodel */;
-			path = project_2_Set_Game.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = D33A94A82213295D00EF1907 /* Project object */;
 }
