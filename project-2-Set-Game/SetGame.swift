@@ -50,7 +50,7 @@ class SetGame {
             }
         }
     }
-    public func replaceMatchedCards(chosenCards: Array<Card>){
+    private func replaceMatchedCards(chosenCards: Array<Card>){
         for card in chosenCards {
             if let indexOfCard = cardsOnBoard.index(of: card) {
                 // if there are more cards in the deck
@@ -63,7 +63,7 @@ class SetGame {
             }
         }
     }
-    public func checkIfSelectedcCardsMatch(cards: Array<Card>) -> Bool {
+    private func checkIfSelectedcCardsMatch(cards: Array<Card>) -> Bool {
         var attributesMapsArray = [
             [Int: Bool](),
             [Int: Bool](),
@@ -140,6 +140,12 @@ extension SetGame {
     }
     func dealTwelveCardsForTest() {
         self.dealTwelveCards()
+    }
+    func checkIfSelectedcCardsMatchTest(cards: Array<Card>) -> Bool {
+        return self.checkIfSelectedcCardsMatch(cards: cards)
+    }
+    func replaceMatchedCardsTest(chosenCards: Array<Card>) {
+        return self.replaceMatchedCards(chosenCards: chosenCards)
     }
 }
 #endif

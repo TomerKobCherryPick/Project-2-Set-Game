@@ -25,21 +25,21 @@ class project_2_Set_GameTests: XCTestCase {
         let card1 = Card(shape: 0, fill: 0, color: 0, number: 0)
         let card2 = Card(shape: 1, fill: 1, color: 1, number: 1)
         let card3 = Card(shape: 2, fill: 2, color: 2, number: 2)
-        XCTAssertTrue(game.checkIfSelectedcCardsMatch(cards: [card1, card2, card3]))
+        XCTAssertTrue(game.checkIfSelectedcCardsMatchTest(cards: [card1, card2, card3]))
     }
     
     func testMatchingCardsBySameAttributes() {
         let card1 = Card(shape: 0, fill: 1, color: 2, number: 0)
         let card2 = Card(shape: 0, fill: 1, color: 2, number: 1)
         let card3 = Card(shape: 0, fill: 1, color: 2, number: 2)
-        XCTAssertTrue(game.checkIfSelectedcCardsMatch(cards: [card1, card2, card3]))
+        XCTAssertTrue(game.checkIfSelectedcCardsMatchTest(cards: [card1, card2, card3]))
     }
     
     func testNonMatchingCards() {
         let card1 = Card(shape: 1, fill: 1, color: 2, number: 0)
         let card2 = Card(shape: 0, fill: 1, color: 2, number: 1)
         let card3 = Card(shape: 0, fill: 1, color: 2, number: 2)
-        XCTAssertFalse(game.checkIfSelectedcCardsMatch(cards: [card1, card2, card3]))
+        XCTAssertFalse(game.checkIfSelectedcCardsMatchTest(cards: [card1, card2, card3]))
     }
     
     func testReplaceMatchedCardsWhenDeckIsNotEmpty() {
@@ -48,7 +48,7 @@ class project_2_Set_GameTests: XCTestCase {
             game.cardsOnBoard[1],
             game.cardsOnBoard[2]
         ]
-        game.replaceMatchedCards(chosenCards: chosenCards)
+        game.replaceMatchedCardsTest(chosenCards: chosenCards)
         let cardsAfterReplacement = [game.cardsOnBoard[0],
                                      game.cardsOnBoard[1],
                                      game.cardsOnBoard[2]
@@ -64,7 +64,7 @@ class project_2_Set_GameTests: XCTestCase {
             game.cardsOnBoard[1],
             game.cardsOnBoard[2]
         ]
-        game.replaceMatchedCards(chosenCards: chosenCards)
+        game.replaceMatchedCardsTest(chosenCards: chosenCards)
         XCTAssertFalse(
             game.cardsOnBoard.contains(chosenCards[0]) ||
             game.cardsOnBoard.contains(chosenCards[1]) ||
