@@ -91,13 +91,13 @@ class SetGame {
             dealThreeMoreCards()
         }
     }
-    private func dealThreeMoreCards() {
+    public func dealThreeMoreCards() {
         for _ in 0...2 {
             cardsOnBoard.append(deck[0])
             deck.remove(at: 0)
         }
     }
-    private func resetGame() {
+    func resetGame() {
         selectedCards =  [Card]()
         cardsOnBoard = [Card]()
         deck = [Card]()
