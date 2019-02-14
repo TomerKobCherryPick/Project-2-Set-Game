@@ -40,6 +40,7 @@ class SetGame {
     private func replaceMatchedCards(){
         for card in selectedCards {
             if let indexOfCard = cardsOnBoard.index(of: card) {
+                // if there are more cards in the deck
                 if deck.count > 0 {
                     let newCard = deck.remove(at: 0)
                     cardsOnBoard[indexOfCard] = newCard
