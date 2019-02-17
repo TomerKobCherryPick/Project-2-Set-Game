@@ -51,10 +51,10 @@ class ViewController: UIViewController {
     @IBAction func touchCard(_ sender: UIButton) {
         if visibleCardButtons.contains(sender) {
             game.selectCard(at: visibleCardButtons.index(of: sender)!)
-            updateViewFromModel()
         } else {
             print("chosen card wasn't in visibleCardButtons")
         }
+         updateViewFromModel()
     }
     @IBAction func touchNewGame(_ sender: Any) {
         game.resetGame()
@@ -84,7 +84,7 @@ class ViewController: UIViewController {
             }
         }
         updateViewFromModel()
-        if visibleCardButtons.count == 24 {
+        if visibleCardButtons.count == 24 || game.deck.count == 0 {
             dealthreeCardsButton.setTitle("", for: UIControl.State.normal)
         }
     }
