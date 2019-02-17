@@ -195,6 +195,23 @@ class project_2_Set_GameTests: XCTestCase {
         
     }
     
+    func testcheckDeck() {
+        var map = [[Int] : Bool]()
+        for index in game.deck.indices {
+            let currentAttributes = game.deck[index].attributes
+            print(currentAttributes)
+            if map[currentAttributes] != nil {
+                XCTAssert(false)
+            } else {
+                map[currentAttributes] = true
+            }
+        }
+//        var myDeck = game.cardsOnBoard
+        
+        XCTAssert(true)
+       
+        
+    }
     
     
 }

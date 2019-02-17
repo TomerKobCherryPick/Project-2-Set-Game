@@ -13,6 +13,8 @@ class SetGame {
     private(set) var deck = [Card]()
     private(set) var cardsOnBoard = [Card]()
     private(set) var selectedCardsMatched: Bool?
+    private(set) var score = 0
+    private var timeWhenGameStarted = Date.init()
     init() {
         createDeck()
         deck.shuffle()
@@ -26,14 +28,10 @@ class SetGame {
             if selectedCardsMatched != nil && selectedCardsMatched! {
                 replaceMatchedCards(chosenCards: selectedCards)
             }
-            if !selectedCards.contains(cardToChoose) {
-                selectedCards = [cardToChoose]
-            } else {
-                selectedCards = []
-            }
+            selectedCards = selectedCards.contains(cardToChoose) ?  [] :[cardToChoose]
             selectedCardsMatched = false
         }
-        // 1 or 2 crads are selected
+            // 1 or 2 crads are selected
         else {
             // if the card we are trying to select is already selected, we deselect it
             if let index = selectedCards.firstIndex(of: cardToChoose){
@@ -46,6 +44,7 @@ class SetGame {
                 // we check wether selected cards match
                 if(selectedCards.count == 3) {
                     selectedCardsMatched = checkIfSelectedcCardsMatch(cards: selectedCards)
+                    score += selectedCardsMatched! ? 3 : -5
                 }
             }
         }
@@ -62,14 +61,10 @@ class SetGame {
                 }
             }
         }
+        selectedCardsMatched = false
     }
     private func checkIfSelectedcCardsMatch(cards: Array<Card>) -> Bool {
-        var attributesMapsArray = [
-            [Int: Bool](),
-            [Int: Bool](),
-            [Int: Bool](),
-            [Int: Bool]()
-        ]
+        var attributesMapsArray = [[Int: Bool](),[Int: Bool](),[Int: Bool](),[Int: Bool]()]
         for card in cards {
             var attributeType = 0
             for attribute in card.attributes {
@@ -92,9 +87,16 @@ class SetGame {
         }
     }
     public func dealThreeMoreCards() {
-        for _ in 0...2 {
-            cardsOnBoard.append(deck[0])
-            deck.remove(at: 0)
+        if selectedCardsMatched == nil || selectedCardsMatched == false {
+            for _ in 0...2 {
+                if(deck.count == 0) {
+                    break
+                }
+                cardsOnBoard.append(deck[0])
+                deck.remove(at: 0)
+            }
+        } else {
+            replaceMatchedCards(chosenCards: selectedCards)
         }
     }
     func resetGame() {
@@ -105,18 +107,14 @@ class SetGame {
         deck.shuffle()
         dealTwelveCards()
         selectedCardsMatched = nil
+        timeWhenGameStarted = Date.init()
     }
     private func createDeck(){
         for shape in 0...2 {
             for fill in 0...2 {
                 for color in 0...2 {
                     for number in 0...2 {
-                        deck.append(
-                            Card(shape: shape,
-                                 fill: fill,
-                                 color: color,
-                                 number: number)
-                        )
+                        deck.append(Card(shape: shape,fill: fill,color: color, number: number))
                     }
                 }
             }
