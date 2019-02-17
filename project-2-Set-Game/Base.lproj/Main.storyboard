@@ -53,7 +53,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GpB-hK-kJl">
-                                                        <rect key="frame" x="242.33333333333329" y="0.0" width="72.666666666666657" height="86.333333333333329"/>
+                                                        <rect key="frame" x="242.33333333333326" y="0.0" width="72.666666666666657" height="86.333333333333329"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <connections>
@@ -90,7 +90,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z3O-GQ-8wJ">
-                                                        <rect key="frame" x="242.33333333333329" y="0.0" width="72.666666666666657" height="86"/>
+                                                        <rect key="frame" x="242.33333333333326" y="0.0" width="72.666666666666657" height="86"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <connections>
@@ -127,7 +127,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0M-7f-xuU">
-                                                        <rect key="frame" x="242.33333333333329" y="0.0" width="72.666666666666657" height="86.333333333333329"/>
+                                                        <rect key="frame" x="242.33333333333326" y="0.0" width="72.666666666666657" height="86.333333333333329"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <connections>
@@ -169,7 +169,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FpP-yV-axL">
-                                                        <rect key="frame" x="242.33333333333329" y="0.0" width="72.666666666666657" height="86"/>
+                                                        <rect key="frame" x="242.33333333333326" y="0.0" width="72.666666666666657" height="86"/>
                                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <connections>
@@ -206,7 +206,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDR-hk-cxg">
-                                                        <rect key="frame" x="242.33333333333329" y="0.0" width="72.666666666666657" height="86.333333333333329"/>
+                                                        <rect key="frame" x="242.33333333333326" y="0.0" width="72.666666666666657" height="86.333333333333329"/>
                                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <connections>
@@ -243,7 +243,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2am-Q2-g7v">
-                                                        <rect key="frame" x="242.33333333333329" y="0.0" width="72.666666666666657" height="86"/>
+                                                        <rect key="frame" x="242.33333333333326" y="0.0" width="72.666666666666657" height="86"/>
                                                         <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <connections>
@@ -260,7 +260,7 @@
                                 <rect key="frame" x="80" y="663" width="215" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INO-06-cD0">
-                                        <rect key="frame" x="36" y="0.0" width="143" height="50"/>
+                                        <rect key="frame" x="36" y="0.0" width="143" height="33.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="New Game">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -269,8 +269,18 @@
                                             <action selector="touchNewGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9IT-ri-veb"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YpT-I1-7DM">
+                                        <rect key="frame" x="68" y="33.333333333333371" width="79" height="33.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Cheat">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="touchCheat:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K1p-4K-FJO"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BO7-IE-LLm">
-                                        <rect key="frame" x="0.0" y="50" width="215" height="50"/>
+                                        <rect key="frame" x="0.0" y="66.666666666666629" width="215" height="33.333333333333343"/>
                                         <accessibility key="accessibilityConfiguration">
                                             <accessibilityTraits key="traits" button="YES" adjustable="YES"/>
                                         </accessibility>
@@ -310,6 +320,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cheatButton" destination="YpT-I1-7DM" id="Wkf-9D-C1X"/>
                         <outlet property="dealthreeCardsButton" destination="BO7-IE-LLm" id="pZ5-kg-TY8"/>
                         <outlet property="newGameButton" destination="INO-06-cD0" id="sUK-MI-ra0"/>
                         <outlet property="scoreLabel" destination="sqX-kI-IM6" id="aEs-gl-PYm"/>

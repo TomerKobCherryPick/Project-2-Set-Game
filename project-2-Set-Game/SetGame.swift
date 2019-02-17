@@ -15,6 +15,8 @@ class SetGame {
     private(set) var selectedCardsMatched: Bool?
     private(set) var score = 0
     private var timeWhenGameStarted = Date.init()
+    
+    
     init() {
         createDeck()
         deck.shuffle()
@@ -37,17 +39,21 @@ class SetGame {
             if let index = selectedCards.firstIndex(of: cardToChoose){
                 selectedCards.remove(at: index)
             }
-            // else, we add the card to selected cards
+                // else, we add the card to selected cards
             else {
                 selectedCards.append(cardToChoose)
                 // if after selecting a crad, there are 3 selected cards,
                 // we check wether selected cards match
                 if(selectedCards.count == 3) {
                     selectedCardsMatched = checkIfSelectedcCardsMatch(cards: selectedCards)
-                    score += selectedCardsMatched! ? 3 : -5
+                    score += Int(calculateFactor())
                 }
             }
         }
+    }
+    private func calculateFactor() -> Double {
+        let timePassedSinceGameStarted = Double (Date.init().timeIntervalSince(timeWhenGameStarted))
+        return selectedCardsMatched! ?  2000  / timePassedSinceGameStarted : -100
     }
     private func replaceMatchedCards(chosenCards: Array<Card>){
         for card in chosenCards {
@@ -75,18 +81,42 @@ class SetGame {
             }
         }
         for attributeMap in attributesMapsArray {
-            if attributeMap.count == 2 {
+            if attributeMap.count  == 2 {
                 return false
             }
         }
         return true
     }
+    public func checkIfThereIsAMatchOnBoard() -> (Array<Int>?,Bool){
+        var possibleMatch: Array<Int>? = nil
+        for firstIndex in cardsOnBoard.indices {
+            for secondIndex in firstIndex + 1..<cardsOnBoard.count {
+                for thirdIndex in secondIndex + 1..<cardsOnBoard.count {
+                    if checkIfSelectedcCardsMatch(
+                        cards:[cardsOnBoard[firstIndex],
+                               cardsOnBoard[secondIndex],
+                               cardsOnBoard[thirdIndex]]) {
+                        
+                        possibleMatch = [firstIndex,
+                                         secondIndex,
+                                         thirdIndex]
+                        return (possibleMatch,true)
+                    }
+                }
+            }
+        }
+        return (nil,false)
+    }
     private func dealTwelveCards() {
-        for _ in 0...3{
-            dealThreeMoreCards()
+        for _ in 0...11{
+            cardsOnBoard.append(deck[0])
+            deck.remove(at: 0)
         }
     }
     public func dealThreeMoreCards() {
+        if checkIfThereIsAMatchOnBoard().1 {
+            score -= 50
+        }
         if selectedCardsMatched == nil || selectedCardsMatched == false {
             for _ in 0...2 {
                 if(deck.count == 0) {
@@ -108,6 +138,7 @@ class SetGame {
         dealTwelveCards()
         selectedCardsMatched = nil
         timeWhenGameStarted = Date.init()
+        score = 0
     }
     private func createDeck(){
         for shape in 0...2 {

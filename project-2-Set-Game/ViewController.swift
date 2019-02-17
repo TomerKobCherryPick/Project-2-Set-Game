@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     private let intToShapeMap = [0: "▲", 1: "●", 2: "■"]
-    private let intToColorMap = [0: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1) , 1: #colorLiteral(red: 0, green: 0.8268741454, blue: 0.8346882931, alpha: 1) , 2: #colorLiteral(red: 0.5791940689, green: 0.1280144453, blue: 0.5726861358, alpha: 1)]
+    private let intToColorMap = [0: #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1) , 1: #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1) , 2: #colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1)]
     private let intToFillMap = [0: Fill.stripe, 1: Fill.filled, 2: Fill.outlined]
     private lazy var game = SetGame()
     @IBOutlet weak var newGameButton: UIButton!
@@ -18,10 +18,12 @@ class ViewController: UIViewController {
     @IBOutlet var nonVisibleCardButtons: [UIButton]!
     @IBOutlet var visibleCardButtons: [UIButton]!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var cheatButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         dealthreeCardsButton.titleLabel?.adjustsFontSizeToFitWidth = true
         newGameButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        cheatButton.titleLabel?.adjustsFontSizeToFitWidth = true
         scoreLabel.adjustsFontSizeToFitWidth = true
         for button in nonVisibleCardButtons {
             button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
@@ -81,6 +83,14 @@ class ViewController: UIViewController {
         updateViewFromModel()
         if visibleCardButtons.count == 24 {
             dealthreeCardsButton.setTitle("", for: UIControl.State.normal)
+        }
+    }
+    @IBAction func touchCheat(_ sender: Any) {
+        let possibleMatch =  game.checkIfThereIsAMatchOnBoard()
+        if possibleMatch.1 {
+            visibleCardButtons[possibleMatch.0![0]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+            visibleCardButtons[possibleMatch.0![1]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+            visibleCardButtons[possibleMatch.0![2]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
         }
     }
     private func updateViewFromModel(){
