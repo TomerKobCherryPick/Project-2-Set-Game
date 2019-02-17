@@ -15,6 +15,7 @@
 		D3F10CD52215539E001623E4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CD32215539D001623E4 /* Card.swift */; };
 		D3F10CD62215539E001623E4 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CD42215539E001623E4 /* SetGame.swift */; };
 		D3F10CDE22155430001623E4 /* project_2_Set_GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CDD22155430001623E4 /* project_2_Set_GameTests.swift */; };
+		D3F10CE62219CC6C001623E4 /* OpponentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CE52219CC6C001623E4 /* OpponentState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		D3F10CDB22155430001623E4 /* project-2-Set-GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "project-2-Set-GameTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F10CDD22155430001623E4 /* project_2_Set_GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_2_Set_GameTests.swift; sourceTree = "<group>"; };
 		D3F10CDF22155431001623E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3F10CE52219CC6C001623E4 /* OpponentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +85,9 @@
 			children = (
 				D33A94C82213299300EF1907 /* Supporting Files */,
 				D33A94B52213295D00EF1907 /* ViewController.swift */,
-				D3F10CD32215539D001623E4 /* Card.swift */,
 				D3F10CD42215539E001623E4 /* SetGame.swift */,
+				D3F10CD32215539D001623E4 /* Card.swift */,
+				D3F10CE52219CC6C001623E4 /* OpponentState.swift */,
 				D33A94B72213295D00EF1907 /* Main.storyboard */,
 				D33A94C22213295E00EF1907 /* Info.plist */,
 			);
@@ -215,6 +218,7 @@
 				D3F10CD62215539E001623E4 /* SetGame.swift in Sources */,
 				D33A94B42213295D00EF1907 /* AppDelegate.swift in Sources */,
 				D3F10CD52215539E001623E4 /* Card.swift in Sources */,
+				D3F10CE62219CC6C001623E4 /* OpponentState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

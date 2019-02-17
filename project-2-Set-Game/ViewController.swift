@@ -19,12 +19,15 @@ class ViewController: UIViewController {
     @IBOutlet var visibleCardButtons: [UIButton]!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var cheatButton: UIButton!
+    @IBOutlet weak var iphoneScoreLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dealthreeCardsButton.titleLabel?.adjustsFontSizeToFitWidth = true
         newGameButton.titleLabel?.adjustsFontSizeToFitWidth = true
         cheatButton.titleLabel?.adjustsFontSizeToFitWidth = true
         scoreLabel.adjustsFontSizeToFitWidth = true
+        iphoneScoreLabel.adjustsFontSizeToFitWidth = true
         for button in nonVisibleCardButtons {
             button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
             button.layer.cornerRadius = 8.0
@@ -94,6 +97,7 @@ class ViewController: UIViewController {
         }
     }
     private func updateViewFromModel(){
+        iphoneScoreLabel.text = "\(game.opponentState.stateToEmoji()) iphone's Score: \(game.opponentScore)"
         scoreLabel.text = "Score: \(game.score)"
         for index in visibleCardButtons.indices {
             updateViewForCard(index: index)
