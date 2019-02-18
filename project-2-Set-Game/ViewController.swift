@@ -20,7 +20,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var cheatButton: UIButton!
     @IBOutlet weak var iphoneScoreLabel: UILabel!
-    
+    @IBOutlet weak var whoWonLabel: UILabel!
+    private var whoWonString: String {
+        return game.score == game.opponentScore ? "It's a tie 🤨" :
+            game.score > game.opponentScore ? "You Won 😃" : "You Lost 😩"
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         dealthreeCardsButton.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -28,6 +32,8 @@ class ViewController: UIViewController {
         cheatButton.titleLabel?.adjustsFontSizeToFitWidth = true
         scoreLabel.adjustsFontSizeToFitWidth = true
         iphoneScoreLabel.adjustsFontSizeToFitWidth = true
+        whoWonLabel.adjustsFontSizeToFitWidth = true
+        whoWonLabel.text = ""
         for button in nonVisibleCardButtons {
             button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
             button.layer.cornerRadius = 8.0
@@ -54,7 +60,7 @@ class ViewController: UIViewController {
         } else {
             print("chosen card wasn't in visibleCardButtons")
         }
-         updateViewFromModel()
+        updateViewFromModel()
     }
     @IBAction func touchNewGame(_ sender: Any) {
         game.resetGame()
@@ -70,6 +76,8 @@ class ViewController: UIViewController {
         }
         nonVisibleCardButtons = newNonVisiblebuttons
         dealthreeCardsButton.setTitle("Deal 3 more Cards", for: UIControl.State.normal)
+        cheatButton.setTitle("Cheat", for: UIControl.State.normal)
+        whoWonLabel.text = ""
     }
     @IBAction func touchDealThreeMoreCards(_ sender: Any) {
         let cardsSelectedMatch = game.selectedCardsMatched
@@ -89,6 +97,7 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func touchCheat(_ sender: Any) {
+        updateViewFromModel()
         let possibleMatch =  game.checkIfThereIsAMatchOnBoard()
         if possibleMatch.1 {
             visibleCardButtons[possibleMatch.0![0]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
@@ -97,6 +106,11 @@ class ViewController: UIViewController {
         }
     }
     private func updateViewFromModel(){
+        if game.isGameOver {
+            whoWonLabel.text = "\(whoWonString)"
+            cheatButton.setTitle("", for: UIControl.State.normal)
+            dealthreeCardsButton.setTitle("", for: UIControl.State.normal)
+        }
         iphoneScoreLabel.text = "\(game.opponentState.stateToEmoji()) iphone's Score: \(game.opponentScore)"
         scoreLabel.text = "Score: \(game.score)"
         for index in visibleCardButtons.indices {
@@ -115,7 +129,7 @@ class ViewController: UIViewController {
             }
             setTextInCard(button: visibleCardButtons[index], card: game.cardsOnBoard[index])
         } else {
-           clearViewForButton(button: visibleCardButtons[index])
+            clearViewForButton(button: visibleCardButtons[index])
         }
     }
     private func clearViewForButton(button: UIButton) {
@@ -125,21 +139,4 @@ class ViewController: UIViewController {
     }
 }
 
-enum Fill: Int {
-    case stripe  = 0
-    case filled = 1
-    case outlined = 2
-    
-    static func convertToNSAttributedStringKeys(fillType: Fill, color: UIColor) -> [NSAttributedString.Key:Any] {
-        switch fillType {
-        case .stripe:
-            return [.foregroundColor: color.withAlphaComponent(0.15)]
-        case .filled:
-            return [.foregroundColor: color.withAlphaComponent(1)]
-        case .outlined:
-            return [.foregroundColor: color, .strokeWidth: 8.0]
-        }
-        
-    }
-}
 

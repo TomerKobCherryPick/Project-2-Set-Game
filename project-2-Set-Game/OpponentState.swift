@@ -8,13 +8,14 @@
 
 import Foundation
 enum OpponentState {
-    case waiting, readyToMakeAMove, won, lost
+    case waiting, readyToMakeAMove, won, lost, notWaitingForTurn
     func stateToEmoji() -> String {
         switch self {
         case .waiting: return "🤔"
-        case .readyToMakeAMove:  return "😁"
+        case .readyToMakeAMove: return "😁"
         case .won: return "😂"
         case .lost: return "😢"
+        case .notWaitingForTurn: return ""
         }
     }
 }
