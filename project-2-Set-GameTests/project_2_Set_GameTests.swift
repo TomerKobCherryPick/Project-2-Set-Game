@@ -206,11 +206,7 @@ class project_2_Set_GameTests: XCTestCase {
                 map[currentAttributes] = true
             }
         }
-//        var myDeck = game.cardsOnBoard
-        
         XCTAssert(true)
-       
-        
     }
     
     

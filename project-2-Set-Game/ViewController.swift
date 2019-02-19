@@ -21,12 +21,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var cheatButton: UIButton!
     @IBOutlet weak var iphoneScoreLabel: UILabel!
     @IBOutlet weak var whoWonLabel: UILabel!
+    var opponentState: String {
+        get {
+            return game.opponentState.stateToEmoji()
+        } set(newValue) {
+            iphoneScoreLabel.text = "\(newValue) iphone's Score: \(game.opponentScore)"
+        }
+    }
     private var whoWonString: String {
         return game.score == game.opponentScore ? "It's a tie 🤨" :
             game.score > game.opponentScore ? "You Won 😃" : "You Lost 😩"
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        game.delegate = self
         dealthreeCardsButton.titleLabel?.adjustsFontSizeToFitWidth = true
         newGameButton.titleLabel?.adjustsFontSizeToFitWidth = true
         cheatButton.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -34,6 +42,7 @@ class ViewController: UIViewController {
         iphoneScoreLabel.adjustsFontSizeToFitWidth = true
         whoWonLabel.adjustsFontSizeToFitWidth = true
         whoWonLabel.text = ""
+        iphoneScoreLabel.text = "\(opponentState) iphone's Score: \(game.opponentScore)"
         for button in nonVisibleCardButtons {
             button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
             button.layer.cornerRadius = 8.0
@@ -99,20 +108,14 @@ class ViewController: UIViewController {
     @IBAction func touchCheat(_ sender: Any) {
         updateViewFromModel()
         let possibleMatch =  game.checkIfThereIsAMatchOnBoard()
-        if possibleMatch.1 {
-            visibleCardButtons[possibleMatch.0![0]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
-            visibleCardButtons[possibleMatch.0![1]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
-            visibleCardButtons[possibleMatch.0![2]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+        if possibleMatch.isMatched {
+            visibleCardButtons[possibleMatch.arrayOfMatchedCards![0]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+            visibleCardButtons[possibleMatch.arrayOfMatchedCards![1]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+            visibleCardButtons[possibleMatch.arrayOfMatchedCards![2]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
         }
     }
     private func updateViewFromModel(){
-        if game.isGameOver {
-            whoWonLabel.text = "\(whoWonString)"
-            cheatButton.setTitle("", for: UIControl.State.normal)
-            dealthreeCardsButton.setTitle("", for: UIControl.State.normal)
-        }
-        iphoneScoreLabel.text = "\(game.opponentState.stateToEmoji()) iphone's Score: \(game.opponentScore)"
-        scoreLabel.text = "Score: \(game.score)"
+       scoreLabel.text = "Score: \(game.score)"
         for index in visibleCardButtons.indices {
             updateViewForCard(index: index)
         }
@@ -137,6 +140,39 @@ class ViewController: UIViewController {
         let attributedString = NSAttributedString(string: "", attributes: [:])
         button.setAttributedTitle(attributedString, for: UIControl.State.normal)
     }
+}
+extension ViewController: SetGameDelegate {
+    func gameOver() {
+        whoWonLabel.text = "\(whoWonString)"
+        cheatButton.setTitle("", for: UIControl.State.normal)
+        dealthreeCardsButton.setTitle("", for: UIControl.State.normal)
+    }
+    
+    func macthedIndicesIfExist(match: Array<Int>?) {
+        if match != nil {
+            for index in match! {
+                visibleCardButtons[index].backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
+            }
+            for button in visibleCardButtons {
+                button.isEnabled = false
+            }
+            Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(selector), userInfo: nil, repeats: false)
+        }
+        
+    }
+    @objc private func selector() {
+        updateViewFromModel()
+        for button in visibleCardButtons {
+            button.isEnabled = true
+        }
+    }
+    
+    func setOpponentState(data: OpponentState) {
+        opponentState = data.stateToEmoji()
+    }
+    
+    
+    
 }
 
 

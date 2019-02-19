@@ -18,12 +18,18 @@ class SetGame {
     private(set) var opponentState = OpponentState.notWaitingForTurn
     private(set) var opponentScore = 0
     private(set) var isGameOver = false
+    private var opponentCycleTimer,opponentWaitTimer, opponentReadyToMakeAMoveTimer , opponentMakesAMoveTimer, opponentDoesntWaitForTurnTimer : Timer?
+    
+    private var timeCycle = 0
+    weak var delegate: SetGameDelegate?
     init() {
         createDeck()
         deck.shuffle()
         dealTwelveCards()
+        setOppnentTimer()
     }
     func resetGame() {
+        isGameOver = false
         selectedCards =  [Card]()
         cardsOnBoard = [Card]()
         deck = [Card]()
@@ -35,13 +41,20 @@ class SetGame {
         score = 0
         opponentScore = 0
         opponentState = OpponentState.notWaitingForTurn
-        isGameOver = false
+        self.delegate?.setOpponentState(data:  self.opponentState)
+        stopTimers()
+        setOppnentTimer()
     }
+    
     public func selectCard(at index: Int) {
+        
         if index < cardsOnBoard.count && !isGameOver {
             let cardToChoose = cardsOnBoard[index]
             // 3 cards are selected
             if selectedCards.count == 3 {
+                opponentState = OpponentState.notWaitingForTurn
+                delegate?.setOpponentState(data: opponentState)
+                self.setOppnentTimer()
                 //if current selected cards are matched replace these cards in cardsOnBoard
                 if selectedCardsMatched != nil && selectedCardsMatched! {
                     replaceMatchedCards(chosenCards: selectedCards)
@@ -59,15 +72,21 @@ class SetGame {
                 else {
                     selectedCards.append(cardToChoose)
                     // if after selecting a card, there are 3 selected cards,
-                    // we check wether selected cards match
-                    if(selectedCards.count == 3) {
+                    // we check whether selected cards match
+                    if selectedCards.count == 3 {
                         selectedCardsMatched = checkIfSelectedcCardsMatch(cards: selectedCards)
-                        score += Int(calculateFactor(isThereAMatch: selectedCardsMatched!))
-                        opponentCycle()
+                        if !isGameOver {
+                            score += Int(calculateFactor(isThereAMatch: selectedCardsMatched!))
+                        }
+                        if selectedCardsMatched! {
+                            stopTimers()
+                            opponentLostRound()
+                        }
                     }
                 }
             }
         }
+        checkIfThereIsAMatchOnBoard()
     }
     private func calculateFactor(isThereAMatch: Bool) -> Double {
         let timePassedSinceGameStarted = Double (Date.init().timeIntervalSince(timeWhenGameStarted))
@@ -105,7 +124,7 @@ class SetGame {
         }
         return true
     }
-    public func checkIfThereIsAMatchOnBoard() -> (Array<Int>?,Bool){
+    public func checkIfThereIsAMatchOnBoard() -> (arrayOfMatchedCards: Array<Int>?,isMatched: Bool){
         var possibleMatch: Array<Int>? = nil
         for firstIndex in cardsOnBoard.indices {
             for secondIndex in firstIndex + 1..<cardsOnBoard.count {
@@ -120,6 +139,9 @@ class SetGame {
                 }
             }
         }
+        if deck.count == 0 {
+            gameOver()
+        }
         return (nil,false)
     }
     private func dealTwelveCards() {
@@ -129,13 +151,13 @@ class SetGame {
         }
     }
     public func dealThreeMoreCards() {
-        if checkIfThereIsAMatchOnBoard().1 {
+        if checkIfThereIsAMatchOnBoard().isMatched {
             score -= 50
         }
         if selectedCardsMatched != true {
-            for _ in 0...2 {
-                if(deck.count == 0) {
-                    break
+            dealCardLoop: for _ in 0...2 {
+                if deck.count == 0 || cardsOnBoard.count == 24 {
+                    break dealCardLoop
                 }
                 cardsOnBoard.append(deck[0])
                 deck.remove(at: 0)
@@ -155,34 +177,63 @@ class SetGame {
             }
         }
     }
-    private func opponentCycle(){
-        if !isGameOver {
-            //opponent waits to make a turn
-            Timer.scheduledTimer(withTimeInterval: 0.0, repeats:false, block: {_ in
+    
+    private func setOppnentTimer() {
+        opponentCycleTimer = Timer.scheduledTimer(withTimeInterval: 14, repeats: true, block: {_ in
+            self.opponentWaitTimer = Timer.scheduledTimer(withTimeInterval: 0, repeats: false, block: {_ in
+                //opponent is waiting
                 self.opponentState = OpponentState.waiting
+                self.delegate?.setOpponentState(data:  self.opponentState)
             })
-            //opponent ready to make a move
-            Timer.scheduledTimer(withTimeInterval: 5.0, repeats:false, block: {_ in
+            self.opponentReadyToMakeAMoveTimer = Timer.scheduledTimer(withTimeInterval: 6, repeats: false, block: {_ in
+                //opponent is ready
                 self.opponentState = OpponentState.readyToMakeAMove
+                self.delegate?.setOpponentState(data:  self.opponentState)
             })
-            // opponent makes a move
-            Timer.scheduledTimer(withTimeInterval: 8.0, repeats:false, block: {_ in
+            self.opponentMakesAMoveTimer = Timer.scheduledTimer(withTimeInterval: 9, repeats: false, block: {_ in
+               //opponent makes a move
                 let possibleMatchIndices = self.checkIfThereIsAMatchOnBoard()
                 //opponent found a match
-                if possibleMatchIndices.1 {
-                    self.opponentFoundAMatchActions(matchIndices: possibleMatchIndices.0!)
+                if possibleMatchIndices.isMatched {
+                    self.opponentFoundAMatchActions(matchIndices: possibleMatchIndices.arrayOfMatchedCards!)
+                    self.opponentState = OpponentState.wonRound
+                    self.delegate?.setOpponentState(data:  self.opponentState)
+                    self.delegate?.macthedIndicesIfExist(match: possibleMatchIndices.arrayOfMatchedCards!)
                 }
-                //if there are no more matches then game is over & no cards in the dercl
-                let isThereANextMatch = self.checkIfThereIsAMatchOnBoard().1
+                //if there are no more matches then game is over & no cards in the deck
+                let isThereANextMatch = self.checkIfThereIsAMatchOnBoard().isMatched
                 if self.deck.count == 0 && isThereANextMatch == false  {
-                    self.opponentState = self.score > self.opponentScore ?
-                        OpponentState.lost : OpponentState.won
-                    self.isGameOver = true
-                } else {
-                    self.opponentState = OpponentState.notWaitingForTurn
+                    self.gameOver()
                 }
             })
-        }
+            self.opponentDoesntWaitForTurnTimer = Timer.scheduledTimer(withTimeInterval: 12, repeats: false, block:
+                {_ in
+                //opponent is done making a move
+                    self.opponentState = OpponentState.notWaitingForTurn
+                    self.delegate?.setOpponentState(data:  self.opponentState)
+            })
+        })
+    }
+    private func stopTimers() {
+        opponentCycleTimer?.invalidate()
+        opponentCycleTimer?.invalidate()
+        opponentWaitTimer?.invalidate()
+        opponentDoesntWaitForTurnTimer?.invalidate()
+        opponentReadyToMakeAMoveTimer?.invalidate()
+        opponentMakesAMoveTimer?.invalidate()
+        opponentDoesntWaitForTurnTimer?.invalidate()
+    }
+    private func opponentLostRound() {
+        self.opponentState = OpponentState.lostRound
+        self.delegate?.setOpponentState(data:  self.opponentState)
+    }
+    private func gameOver() {
+        stopTimers()
+        isGameOver = true
+        opponentState =  score > opponentScore ?
+        OpponentState.lost : OpponentState.won
+        delegate?.setOpponentState(data:  opponentState)
+        delegate?.gameOver()
     }
     private func opponentFoundAMatchActions(matchIndices: Array<Int>) {
         var matched = [Card]()
