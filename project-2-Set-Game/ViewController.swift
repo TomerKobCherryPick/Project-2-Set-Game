@@ -109,9 +109,9 @@ class ViewController: UIViewController {
         updateViewFromModel()
         let possibleMatch =  game.checkIfThereIsAMatchOnBoard()
         if possibleMatch.isMatched {
-            visibleCardButtons[possibleMatch.arrayOfMatchedCards![0]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
-            visibleCardButtons[possibleMatch.arrayOfMatchedCards![1]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
-            visibleCardButtons[possibleMatch.arrayOfMatchedCards![2]].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+            for index in possibleMatch.arrayOfMatchedCards!{
+                visibleCardButtons[index].backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+            }
         }
     }
     private func updateViewFromModel(){

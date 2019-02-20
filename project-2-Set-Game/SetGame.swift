@@ -23,9 +23,7 @@ class SetGame {
     private var timeCycle = 0
     weak var delegate: SetGameDelegate?
     init() {
-        createDeck()
-        deck.shuffle()
-        dealTwelveCards()
+        resetDeckAndBoard()
         setOppnentTimer()
     }
     func resetGame() {
@@ -33,9 +31,7 @@ class SetGame {
         selectedCards =  [Card]()
         cardsOnBoard = [Card]()
         deck = [Card]()
-        createDeck()
-        deck.shuffle()
-        dealTwelveCards()
+        resetDeckAndBoard()
         selectedCardsMatched = nil
         timeWhenGameStarted = Date.init()
         score = 0
@@ -45,9 +41,13 @@ class SetGame {
         stopTimers()
         setOppnentTimer()
     }
+    private func resetDeckAndBoard(){
+        createDeck()
+        deck.shuffle()
+        dealMoreCards(cardsToDeal: 12)
+    }
     
     public func selectCard(at index: Int) {
-        
         if index < cardsOnBoard.count && !isGameOver {
             let cardToChoose = cardsOnBoard[index]
             // 3 cards are selected
@@ -144,8 +144,11 @@ class SetGame {
         }
         return (nil,false)
     }
-    private func dealTwelveCards() {
-        for _ in 0...11{
+    private func dealMoreCards(cardsToDeal: Int) {
+        dealCardLoop: for _ in 1...cardsToDeal{
+            if deck.count == 0 || cardsOnBoard.count == 24 {
+                break dealCardLoop
+            }
             cardsOnBoard.append(deck[0])
             deck.remove(at: 0)
         }
@@ -155,13 +158,7 @@ class SetGame {
             score -= 50
         }
         if selectedCardsMatched != true {
-            dealCardLoop: for _ in 0...2 {
-                if deck.count == 0 || cardsOnBoard.count == 24 {
-                    break dealCardLoop
-                }
-                cardsOnBoard.append(deck[0])
-                deck.remove(at: 0)
-            }
+            dealMoreCards(cardsToDeal: 3)
         } else {
             replaceMatchedCards(chosenCards: selectedCards)
         }
@@ -177,7 +174,6 @@ class SetGame {
             }
         }
     }
-    
     private func setOppnentTimer() {
         opponentCycleTimer = Timer.scheduledTimer(withTimeInterval: 14, repeats: true, block: {_ in
             self.opponentWaitTimer = Timer.scheduledTimer(withTimeInterval: 0, repeats: false, block: {_ in
@@ -264,7 +260,7 @@ extension SetGame {
         self.createDeck()
     }
     func dealTwelveCardsForTest() {
-        self.dealTwelveCards()
+        self.dealMoreCards(cardsToDeal: 12)
     }
     func checkIfSelectedcCardsMatchTest(cards: Array<Card>) -> Bool {
         return self.checkIfSelectedcCardsMatch(cards: cards)
