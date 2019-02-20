@@ -10,24 +10,53 @@
 		D33A94B42213295D00EF1907 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A94B32213295D00EF1907 /* AppDelegate.swift */; };
 		D33A94B62213295D00EF1907 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33A94B52213295D00EF1907 /* ViewController.swift */; };
 		D33A94B92213295D00EF1907 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33A94B72213295D00EF1907 /* Main.storyboard */; };
-		D33A94BC2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D33A94BA2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld */; };
 		D33A94BE2213295E00EF1907 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BD2213295E00EF1907 /* Assets.xcassets */; };
 		D33A94C12213295E00EF1907 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D33A94BF2213295E00EF1907 /* LaunchScreen.storyboard */; };
+		D3ECE9C2221C0F570009664A /* SetGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3ECE9C1221C0F570009664A /* SetGameDelegate.swift */; };
+		D3F10CD52215539E001623E4 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CD32215539D001623E4 /* Card.swift */; };
+		D3F10CD62215539E001623E4 /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CD42215539E001623E4 /* SetGame.swift */; };
+		D3F10CDE22155430001623E4 /* project_2_Set_GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CDD22155430001623E4 /* project_2_Set_GameTests.swift */; };
+		D3F10CE62219CC6C001623E4 /* OpponentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CE52219CC6C001623E4 /* OpponentState.swift */; };
+		D3F10CE8221AD3E6001623E4 /* Fill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F10CE7221AD3E6001623E4 /* Fill.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D3F10CE022155431001623E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D33A94A82213295D00EF1907 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D33A94AF2213295D00EF1907;
+			remoteInfo = "project-2-Set-Game";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		D33A94B02213295D00EF1907 /* project-2-Set-Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project-2-Set-Game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D33A94B02213295D00EF1907 /* SetGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33A94B32213295D00EF1907 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D33A94B52213295D00EF1907 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D33A94B82213295D00EF1907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D33A94BB2213295D00EF1907 /* project_2_Set_Game.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project_2_Set_Game.xcdatamodel; sourceTree = "<group>"; };
 		D33A94BD2213295E00EF1907 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D33A94C02213295E00EF1907 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D33A94C22213295E00EF1907 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3ECE9C1221C0F570009664A /* SetGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameDelegate.swift; sourceTree = "<group>"; };
+		D3F10CD32215539D001623E4 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D3F10CD42215539E001623E4 /* SetGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
+		D3F10CDB22155430001623E4 /* project-2-Set-GameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "project-2-Set-GameTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3F10CDD22155430001623E4 /* project_2_Set_GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = project_2_Set_GameTests.swift; sourceTree = "<group>"; };
+		D3F10CDF22155431001623E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3F10CE52219CC6C001623E4 /* OpponentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpponentState.swift; sourceTree = "<group>"; };
+		D3F10CE7221AD3E6001623E4 /* Fill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fill.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D33A94AD2213295D00EF1907 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3F10CD822155430001623E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				D33A94B22213295D00EF1907 /* project-2-Set-Game */,
+				D3F10CDC22155430001623E4 /* project-2-Set-GameTests */,
 				D33A94B12213295D00EF1907 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,7 +78,8 @@
 		D33A94B12213295D00EF1907 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D33A94B02213295D00EF1907 /* project-2-Set-Game.app */,
+				D33A94B02213295D00EF1907 /* SetGame.app */,
+				D3F10CDB22155430001623E4 /* project-2-Set-GameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,9 +89,13 @@
 			children = (
 				D33A94C82213299300EF1907 /* Supporting Files */,
 				D33A94B52213295D00EF1907 /* ViewController.swift */,
+				D3F10CE7221AD3E6001623E4 /* Fill.swift */,
+				D3F10CD42215539E001623E4 /* SetGame.swift */,
+				D3ECE9C1221C0F570009664A /* SetGameDelegate.swift */,
+				D3F10CD32215539D001623E4 /* Card.swift */,
+				D3F10CE52219CC6C001623E4 /* OpponentState.swift */,
 				D33A94B72213295D00EF1907 /* Main.storyboard */,
 				D33A94C22213295E00EF1907 /* Info.plist */,
-				D33A94BA2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld */,
 			);
 			path = "project-2-Set-Game";
 			sourceTree = "<group>";
@@ -75,12 +110,21 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D3F10CDC22155430001623E4 /* project-2-Set-GameTests */ = {
+			isa = PBXGroup;
+			children = (
+				D3F10CDD22155430001623E4 /* project_2_Set_GameTests.swift */,
+				D3F10CDF22155431001623E4 /* Info.plist */,
+			);
+			path = "project-2-Set-GameTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D33A94AF2213295D00EF1907 /* project-2-Set-Game */ = {
+		D33A94AF2213295D00EF1907 /* SetGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D33A94C52213295E00EF1907 /* Build configuration list for PBXNativeTarget "project-2-Set-Game" */;
+			buildConfigurationList = D33A94C52213295E00EF1907 /* Build configuration list for PBXNativeTarget "SetGame" */;
 			buildPhases = (
 				D33A94AC2213295D00EF1907 /* Sources */,
 				D33A94AD2213295D00EF1907 /* Frameworks */,
@@ -90,10 +134,28 @@
 			);
 			dependencies = (
 			);
-			name = "project-2-Set-Game";
+			name = SetGame;
 			productName = "project-2-Set-Game";
-			productReference = D33A94B02213295D00EF1907 /* project-2-Set-Game.app */;
+			productReference = D33A94B02213295D00EF1907 /* SetGame.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D3F10CDA22155430001623E4 /* project-2-Set-GameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3F10CE222155431001623E4 /* Build configuration list for PBXNativeTarget "project-2-Set-GameTests" */;
+			buildPhases = (
+				D3F10CD722155430001623E4 /* Sources */,
+				D3F10CD822155430001623E4 /* Frameworks */,
+				D3F10CD922155430001623E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3F10CE122155431001623E4 /* PBXTargetDependency */,
+			);
+			name = "project-2-Set-GameTests";
+			productName = "project-2-Set-GameTests";
+			productReference = D3F10CDB22155430001623E4 /* project-2-Set-GameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -107,6 +169,10 @@
 				TargetAttributes = {
 					D33A94AF2213295D00EF1907 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					D3F10CDA22155430001623E4 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = D33A94AF2213295D00EF1907;
 					};
 				};
 			};
@@ -123,7 +189,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D33A94AF2213295D00EF1907 /* project-2-Set-Game */,
+				D33A94AF2213295D00EF1907 /* SetGame */,
+				D3F10CDA22155430001623E4 /* project-2-Set-GameTests */,
 			);
 		};
 /* End PBXProject section */
@@ -139,6 +206,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D3F10CD922155430001623E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -146,13 +220,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3ECE9C2221C0F570009664A /* SetGameDelegate.swift in Sources */,
 				D33A94B62213295D00EF1907 /* ViewController.swift in Sources */,
-				D33A94BC2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld in Sources */,
+				D3F10CD62215539E001623E4 /* SetGame.swift in Sources */,
 				D33A94B42213295D00EF1907 /* AppDelegate.swift in Sources */,
+				D3F10CD52215539E001623E4 /* Card.swift in Sources */,
+				D3F10CE8221AD3E6001623E4 /* Fill.swift in Sources */,
+				D3F10CE62219CC6C001623E4 /* OpponentState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3F10CD722155430001623E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3F10CDE22155430001623E4 /* project_2_Set_GameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3F10CE122155431001623E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D33A94AF2213295D00EF1907 /* SetGame */;
+			targetProxy = D3F10CE022155431001623E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D33A94B72213295D00EF1907 /* Main.storyboard */ = {
@@ -326,6 +420,46 @@
 			};
 			name = Release;
 		};
+		D3F10CE322155431001623E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 885YV2LZDD;
+				INFOPLIST_FILE = "project-2-Set-GameTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "training.project-2-Set-GameTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SetGame.app/SetGame";
+			};
+			name = Debug;
+		};
+		D3F10CE422155431001623E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 885YV2LZDD;
+				INFOPLIST_FILE = "project-2-Set-GameTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "training.project-2-Set-GameTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SetGame.app/SetGame";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -338,7 +472,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D33A94C52213295E00EF1907 /* Build configuration list for PBXNativeTarget "project-2-Set-Game" */ = {
+		D33A94C52213295E00EF1907 /* Build configuration list for PBXNativeTarget "SetGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D33A94C62213295E00EF1907 /* Debug */,
@@ -347,20 +481,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-/* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		D33A94BA2213295D00EF1907 /* project_2_Set_Game.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D33A94BB2213295D00EF1907 /* project_2_Set_Game.xcdatamodel */,
+		D3F10CE222155431001623E4 /* Build configuration list for PBXNativeTarget "project-2-Set-GameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3F10CE322155431001623E4 /* Debug */,
+				D3F10CE422155431001623E4 /* Release */,
 			);
-			currentVersion = D33A94BB2213295D00EF1907 /* project_2_Set_Game.xcdatamodel */;
-			path = project_2_Set_Game.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-/* End XCVersionGroup section */
+/* End XCConfigurationList section */
 	};
 	rootObject = D33A94A82213295D00EF1907 /* Project object */;
 }
